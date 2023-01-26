@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    /* background-image: url("./background.png"); */
+    background-size: 100%;
+}
+
+.name-box{
+    color: #05445e;
+    display: inline-block;
+}
+.name-typed{
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-family: "Josefin Sans", sans-serif;
+      background: linear-gradient(to right,#50807b 0%, #25abe8 50%, #05445e 60%);
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textclip 1.5s linear infinite;
+      display: inline-block;
+}
+
+@keyframes textclip {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+
+.main-box{
+    background-image: url("./background.png");
+    justify-content: center;
+    padding: 15px;
+    background-color: rgb(0, 255, 255);
+    height: 110vh;
+}
+
+/*####################
+###### Inner box #####
+######################*/
+.inner-box{
+    display: flex;
+    border: 2px solid #50807b;
+    box-shadow: 0 0 50px #000202;
+    flex-direction: row;
+    margin: 15px;
+    height: 75%;
+    backdrop-filter: blur(30px);
+	background: linear-gradient(45deg, #d48e7979, #3cd3e763, #23a5d567, #a1b91859);
+	background-size: 400% 400%;
+	animation: gradient 2s ease-in infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 80%;
+	}
+	50% {
+		background-position: 80% 40%;
+	}
+	100% {
+		background-position: 0% 60%;
+	}
+}
+
+.box{
+    margin: 15px;
+    flex-shrink: 0px;
+    flex-flow: column;
+    justify-content: space-around;
+}
+
+.b1{
+    justify-content: center;
+    padding-top: 10vh;
+    justify-content: end;
+}
+
+.b2{
+    justify-content: center;
+    font-size: 24px;
+    text-align: left;
+    color: white;
+    padding-top: 25vh;
+    padding-left: 13em;
+    width: 50%;
+}
+
+.b2 p{
+    font-family:  'monospace';
+    text-align: left;
+}
+
+#quote {
+    font-size: 22px;
+    opacity: 0.5;
+    animation: typing1 1.5s steps(45,end) forwards;
+    overflow: hidden;
+    width: 100%;
+    word-wrap: nowrap;
+    display: inline-block;
+}
+
+/*######################
+######   nav bar  ######
+########################*/
+
+nav {
+    /* background: linear-gradient(45deg, #25abe8, #c25725); */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
+	animation: gradient 2s ease-in infinite;
+}
+
+  
+  nav a {
+    font-size: 22px;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+    transition: all 0.3s ease;
+    border: 3px solid #0c85b9;
+    box-shadow: 2px;
+  }
+  
+  nav a:hover {
+    font-size: 28px;
+  }
+  
