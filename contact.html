@@ -25,21 +25,22 @@
                     </div>
                     <div class="app-contact"></div>
                   </div>
+                  <!-- Form section -->
                   <div class="screen-body-item">
-                    <div class="app-form">
+                    <form onsubmit="sendEmail();test(); reset(); return false;" class="app-form">
                       <div class="app-form-group">
-                        <input class="app-form-control" placeholder="NAME" >
+                        <input id="name" class="app-form-control" placeholder="NAME" >
                       </div>
-                      <div class="app-form-group">
+                      <div id="email" class="app-form-group">
                         <input class="app-form-control" placeholder="EMAIL">
                       </div>
                       <div class="app-form-group message">
-                        <input class="app-form-control" placeholder="MESSAGE">
+                        <input id="message" class="app-form-control" placeholder="MESSAGE">
                       </div>
                       <div class="app-form-group buttons">
-                        <button class="app-form-button">SEND</button>
+                        <button id="send" type="submit" class="app-form-button">SEND</button>
                       </div>
-                    </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -50,5 +51,24 @@
                 <a href="project.html">Projects</a>
               </nav>
           </div> 
+          <script src="https://smtpjs.com/v3/smtp.js"></script>
+          <script>
+              //testing if the form is working
+              function test(){
+                console.log(document.getElementById("name").value);
+              }
+              //function that send mail using elastic smtp servies
+              function sendEmail(){
+                Email.send({
+                SecureToken : "5fdd82af-2199-488d-88e5-40f843b291eb",
+                To : 'lilesh3016@gmail.com',
+                From : 'lilesh3016@gmail.com',
+                Subject : "Contact enquiry from portoflio",
+                Body : "From : "+document.getElementById("name").value+"<br> Eamil: "+document.getElementById("email").value+"<br> Message:"+document.getElementById("message").value
+              }).then(
+                message => alert(message)
+              );
+              }
+            </script>
     </body>
 </html>
