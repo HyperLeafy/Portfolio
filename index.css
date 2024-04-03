@@ -49,7 +49,7 @@
     box-shadow: 0 0 50px #000202;
     flex-direction: row;
     margin: 15px;
-    height: 76vh;
+    height: 75vh;
     backdrop-filter: blur(30px);
 	background: linear-gradient(45deg, #d48e7979, #3cd3e763, #23a5d567, #a1b91859);
 	background-size: 400% 400%;
