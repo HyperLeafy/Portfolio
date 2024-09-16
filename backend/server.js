@@ -14,6 +14,14 @@ app.use(express.json());
 const uri = 'mongodb+srv://blank:Astro_13@cluster0.h3zj1.mongodb.net/'; // Enter your cluster login url
 const client = new MongoClient(uri);
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+
+// Serve the React app for any other route
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+  });
 
 
 ////////////////////////////////
