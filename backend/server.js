@@ -1,11 +1,12 @@
 // server.js
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { MongoClient } = require('mongodb');
 const nodemailer = require('nodemailer');
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -81,6 +82,6 @@ async function fetchProjects(req, res) {
 app.get('/api/projects', fetchProjects);
 app.post('/api/contact', sendMessage);
 
-app.listen(port, '0.0.0.0', () => {
+app.listen(port,() => {
     console.log(`Server running at http://localhost:${port}`);
 });
