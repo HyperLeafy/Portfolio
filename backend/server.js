@@ -8,21 +8,16 @@ const nodemailer = require('nodemailer');
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors());
+// const cors = require('cors');
+app.use(cors({
+    origin: '*', // Add the Vercel frontend URL here
+    methods: 'GET,POST',
+}));
 app.use(express.json());
 
 
 const uri = 'mongodb+srv://blank:Astro_13@cluster0.h3zj1.mongodb.net/'; // Enter your cluster login url
 const client = new MongoClient(uri);
-
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../frontend/build')));
-
-
-// Serve the React app for any other route
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
-  });
 
 
 ////////////////////////////////
@@ -81,6 +76,20 @@ async function fetchProjects(req, res) {
 // Api routes setup 
 app.get('/api/projects', fetchProjects);
 app.post('/api/contact', sendMessage);
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+app.use((req, res, next) => {
+    console.log(`Received request: ${req.method} ${req.url}`);
+    next();
+});
+// Serve the React app for any other route
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+  });
+
+
 
 app.listen(port,() => {
     console.log(`Server running at http://localhost:${port}`);
