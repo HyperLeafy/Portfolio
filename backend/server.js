@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 
-const uri = 'mongodb+srv://<your user name>:<your password>@cluster0.h3zj1.mongodb.net/'; // Enter your cluster login url
+const uri = 'mongodb+srv://blank:Astro_13@cluster0.h3zj1.mongodb.net/'; // Enter your cluster login url
 const client = new MongoClient(uri);
 
 
@@ -24,8 +24,8 @@ const transporter = nodemailer.createTransport({
     host: 'smtp.elasticemail.com', // Elastic Email SMTP server
     port: 2525, // or 587
     auth: {
-        user: '', // Replace with your Elastic Email username
-        pass: '', // Replace with your Elastic Email password
+        user: process.env.EMAIL_USER, // Replace with your Elastic Email username
+        pass: process.env.EMAIL_PASS, // Replace with your Elastic Email password
     },
     debug: true,
 });
