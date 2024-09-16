@@ -34,8 +34,8 @@ async function sendMessage(req, res) {
     const { name, email, subject, message } = req.body;
 
     const mailOptions = {
-        from: 'lilesh3016@gmail.com', // Sender's email address
-        to: 'lilesh3016@gmail.com',   // The same email address
+        from: '', // Sender's email address
+        to: '',   // The same email address
         subject: subject,
         html: `
             <p>From: ${name}</p>
