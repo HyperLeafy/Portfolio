@@ -7,7 +7,7 @@ const ProjectPage = () => {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/projects')
+        fetch('https://portfolio-iqx4.onrender.com/api/projects')
             .then((response) => response.json())
             .then((data) => setProjects(data))
             .catch((error) => console.error('Error fetching projects:', error));
