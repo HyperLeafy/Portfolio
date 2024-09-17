@@ -8,7 +8,7 @@ Features
 
 Tech Stack
 
-    Frontend: React, React Router, Bootstrap/Tailwind CSS
+    Frontend: React, React Router, Hardcoded CSS
     Backend: Node.js, Express.js
     Database: MongoDB
 
