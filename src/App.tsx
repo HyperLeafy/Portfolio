@@ -7,6 +7,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 interface Projects {
   name: string;
   details: string;
+  url: string;
 }
 
 function App() {
@@ -16,18 +17,26 @@ function App() {
     {
       name: 'Portfolio',
       details: 'A collection of my work and projects, showcasing skills and experiences.',
+      url:'https://github.com/HyperLeafy/Portfolio',
+    },
+    {
+      name:'tasklt',
+      details:'A todo list cli tool for terminal written in python',
+      url: 'https://github.com/HyperLeafy/tasklt',
     },
     {
       name: 'ASCII Vision',
       details: 'An image to ASCII converter that transforms video feed into ASCII art in real-time.',
+      url:'',
     },
     {
       name: 'LitReview',
       details: 'A tool for reviewing and organizing literature for research projects.',
+      url:'https://github.com/HyperLeafy/LitReview',
     },
   ];
 
-  const skillList: string[] =["HTML","JavaScritp","TypeScript","","Tailswind","React",];
+  // const skillList: string[] =["HTML","JavaScritp","TypeScript","","Tailswind","React",];
 
   return (
     <div className="flex flex-col h-screen">
@@ -107,6 +116,9 @@ function App() {
             <div className="w-fit h-fit p-2 flex items-center justify-center bg-white rounded-lg shadow-lg border-x-2 hover:border-y-slate-400 hover:border-y-2 hover:border-x-0 border-slate-400 transform">
               Tailwind CSS
             </div>
+            <div className="w-fit h-fit p-2 flex items-center justify-center bg-white rounded-lg shadow-lg border-x-2 hover:border-y-slate-400 hover:border-y-2 hover:border-x-0 border-slate-400 transform">
+              Python
+            </div>
             </div>
           </div>
         </div>
@@ -137,8 +149,14 @@ function App() {
         <div className='flex-[2_1_70%] flex bg-slate-300'>
           <div className='bg-white p-8 w-full rounded-lg shadow-lg border-slate-800 border-2 border-dashed transition-transform transform hover:scale-105 hover:-translate-y-5 hover:z-10 hover:-translate-x-6 hover:shadow-2xl'>
             {activeProject !== null ? (
-              <div>
-                <h3 className="text-4xl font-medium font-tomo">{projectList[activeProject].name}.</h3>
+              <div >
+                  <a
+                    href={projectList[activeProject].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <h3 className="text-4xl font-medium font-tomo" >{projectList[activeProject].name}.</h3>
+                  </a>
                 <p>{projectList[activeProject].details}</p>
               </div>
             ) : (
