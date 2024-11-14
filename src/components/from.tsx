@@ -17,12 +17,18 @@ function MyForm() {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Please fill out all fields.");
+      return;
+    }
 
     // Convert formData to JSON
     const jsonData = JSON.stringify(formData);
 
     try {
-      const response = await fetch("https://your-server-endpoint.com/api/contact", {
+      const response = await fetch("https://getform.io/f/amddmwmb", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
